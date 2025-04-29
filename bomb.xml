@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+  <!-- Device Tree -->
+  <project
+      name="peridot_playground/device_xiaomi_peridot"
+      path="device/xiaomi/peridot"
+      remote="github"
+      revision="risingOS-15" />
+
+  <!-- Kernel -->
+  <project
+      name="GuidixX/device_xiaomi_peridot-kernel"
+      path="device/xiaomi/peridot-kernel"
+      remote="github"
+      revision="fifteen" />
+
+  <!-- Vendor Blobs -->
+  <project
+      name="peridot_playground/vendor_xiaomi_peridot"
+      path="vendor/xiaomi/peridot"
+      remote="github"
+      revision="fifteen" />
+
+  <!-- MIUI Camera (device blobs) -->
+  <project
+      name="xiaomi-peridot/device_xiaomi_peridot-miuicamera"
+      path="device/xiaomi/peridot-miuicamera"
+      remote="github"
+      revision="Leica" />
+	
+  <!-- MIUI Camera (vendorblobs) -->
+  <project
+      name="GuidixX/vendor_xiaomi_peridot-miuicamera"	
+      path="vendor/xiaomi/peridot-miuicamera"
+      remote="github"
+      revision="fifteen" />	
+
+  <!-- hardware/xiaomi -->
+  <project
+      name="xiaomi-peridot/hardware_xiaomi"	
+      path="hardware/xiaomi"
+      remote="github"
+      revision="vic" />	
+	
+  <!-- packages_apps_DisplayFeatures -->
+  <project
+      name="yaap/packages_apps_DisplayFeatures"	
+      path="packages/apps/DisplayFeatures"
+      remote="github"
+      revision="fifteen" />	
+
+  <!-- packages_apps_FastCharge -->
+  <project
+      name="yaap/packages_apps_FastCharge"	
+      path="packages/apps/FastCharge"
+      remote="github"
+      revision="fifteen" />	
+</manifest>
