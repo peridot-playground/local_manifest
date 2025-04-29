@@ -2,10 +2,10 @@
 <manifest>
   <!-- Device Tree -->
   <project
-      name="peridot_playground/device_xiaomi_peridot"
+      name="peridot-playground/device_xiaomi_peridot"
       path="device/xiaomi/peridot"
       remote="github"
-      revision="risingOS-15" />
+      revision="risingOS-15"  />
 
   <!-- Kernel -->
   <project
@@ -16,28 +16,28 @@
 
   <!-- Vendor Blobs -->
   <project
-      name="peridot_playground/vendor_xiaomi_peridot"
+      name="peridot-playground/vendor_xiaomi_peridot"
       path="vendor/xiaomi/peridot"
       remote="github"
       revision="fifteen" />
 
   <!-- MIUI Camera (device blobs) -->
   <project
-      name="xiaomi-peridot/device_xiaomi_peridot-miuicamera"
+      name="yaap/device_xiaomi_peridot-miuicamera"
       path="device/xiaomi/peridot-miuicamera"
       remote="github"
-      revision="Leica" />
+      revision="fifteen" />
 	
   <!-- MIUI Camera (vendorblobs) -->
   <project
-      name="GuidixX/vendor_xiaomi_peridot-miuicamera"	
+      name="yaap/vendor_xiaomi_peridot-miuicamera"	
       path="vendor/xiaomi/peridot-miuicamera"
       remote="github"
       revision="fifteen" />	
 
   <!-- hardware/xiaomi -->
   <project
-      name="xiaomi-peridot/hardware_xiaomi"	
+      name="yaap/hardware_xiaomi"	
       path="hardware/xiaomi"
       remote="github"
       revision="vic" />	
