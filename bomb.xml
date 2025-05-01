@@ -1,58 +1,103 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
+  <remote name="Soverzion-Peridot"
+           fetch="https://github.com/Soverzion-Peridot"
+           revision="lineage-22.2" />
+
+  <remote name="Soverzion-HQ"
+           fetch="https://gitea.com/Soverzion-HQ" />
+
   <!-- Device Tree -->
   <project
       name="peridot-playground/device_xiaomi_peridot"
       path="device/xiaomi/peridot"
       remote="github"
-      revision="risingOS-15"  />
+      revision="horizondroid-15"  />
 
   <!-- Kernel -->
   <project
-      name="GuidixX/device_xiaomi_peridot-kernel"
+      name="Soverzion-Peridot/device_xiaomi_peridot-kernel"
       path="device/xiaomi/peridot-kernel"
       remote="github"
-      revision="fifteen" />
+      revision="15" />
 
   <!-- Vendor Blobs -->
   <project
-      name="peridot-playground/vendor_xiaomi_peridot"
+      name="Soverzion-Peridot/vendor_xiaomi_peridot"
       path="vendor/xiaomi/peridot"
       remote="github"
-      revision="fifteen" />
+      revision="lineage-22.2" />
 
   <!-- MIUI Camera (device blobs) -->
   <project
-      name="yaap/device_xiaomi_peridot-miuicamera"
+      name="Soverzion-Peridot/device_xiaomi_peridot-miuicamera"
       path="device/xiaomi/peridot-miuicamera"
       remote="github"
-      revision="fifteen" />
+      revision="15-leica" />
 	
   <!-- MIUI Camera (vendorblobs) -->
   <project
-      name="yaap/vendor_xiaomi_peridot-miuicamera"	
+      name="vendor_xiaomi_peridot-miuicamera"	
       path="vendor/xiaomi/peridot-miuicamera"
-      remote="github"
-      revision="fifteen" />	
+      remote="Soverzion-HQ"
+      revision="15-leica" />	
 
   <!-- hardware/xiaomi -->
   <project
-      name="yaap/hardware_xiaomi"	
+      name="Soverzion-Peridot/hardware_xiaomi"	
       path="hardware/xiaomi"
       remote="github"
-      revision="vic" />	
+      revision="lineage-22.2" />	
 	
-  <!-- packages_apps_DisplayFeatures -->
-  <project
-      name="yaap/packages_apps_DisplayFeatures"	
-      path="packages/apps/DisplayFeatures"
-      remote="github"
-      revision="fifteen" />	
+  <!-- Hardware -->
+  <remove-project path="hardware/qcom-caf/common" />
+  <project path="hardware/qcom-caf/common" name="hardware_qcom-caf_common" groups="qcom" remote="Soverzion-Peridot" >
 
-  <!-- packages_apps_FastCharge -->
-  <project
-      name="yaap/packages_apps_FastCharge"	
-      path="packages/apps/FastCharge"
-      remote="github"
-      revision="fifteen" />	
+    <!-- add guard for AOSP hardware/qcom dir -->
+    <linkfile src="os_pickup_aosp.mk" dest="hardware/qcom/Android.mk" />
+
+    <!-- add guards for CAF repositories -->
+    <linkfile src="os_pickup_sepolicy_vndr.mk" dest="device/qcom/sepolicy_vndr/SEPolicy.mk" />
+    <linkfile src="os_pickup_qssi.bp" dest="hardware/qcom-caf/msm8953/Android.bp" />
+    <linkfile src="os_pickup.mk" dest="hardware/qcom-caf/msm8953/Android.mk" />
+    <linkfile src="os_pickup.bp" dest="hardware/qcom-caf/msm8996/Android.bp" />
+    <linkfile src="os_pickup.mk" dest="hardware/qcom-caf/msm8996/Android.mk" />
+    <linkfile src="os_pickup.bp" dest="hardware/qcom-caf/msm8998/Android.bp" />
+    <linkfile src="os_pickup.mk" dest="hardware/qcom-caf/msm8998/Android.mk" />
+    <linkfile src="os_pickup_qssi.bp" dest="hardware/qcom-caf/sdm660/Android.bp" />
+    <linkfile src="os_pickup.mk" dest="hardware/qcom-caf/sdm660/Android.mk" />
+    <linkfile src="os_pickup_qssi.bp" dest="hardware/qcom-caf/sdm845/Android.bp" />
+    <linkfile src="os_pickup.mk" dest="hardware/qcom-caf/sdm845/Android.mk" />
+    <linkfile src="os_pickup_qssi.bp" dest="hardware/qcom-caf/sm8150/Android.bp" />
+    <linkfile src="os_pickup.mk" dest="hardware/qcom-caf/sm8150/Android.mk" />
+    <linkfile src="os_pickup_qssi.bp" dest="hardware/qcom-caf/sm8250/Android.bp" />
+    <linkfile src="os_pickup.mk" dest="hardware/qcom-caf/sm8250/Android.mk" />
+    <linkfile src="os_pickup_qssi.bp" dest="hardware/qcom-caf/sm8350/Android.bp" />
+    <linkfile src="os_pickup.mk" dest="hardware/qcom-caf/sm8350/Android.mk" />
+    <linkfile src="os_pickup_audio-ar.mk" dest="hardware/qcom-caf/sm8450/audio/Android.mk" />
+    <linkfile src="os_pickup_qssi.bp" dest="hardware/qcom-caf/sm8450/Android.bp" />
+    <linkfile src="os_pickup.mk" dest="hardware/qcom-caf/sm8450/Android.mk" />
+    <linkfile src="os_pickup_audio-ar.mk" dest="hardware/qcom-caf/sm8550/audio/Android.mk" />
+    <linkfile src="os_pickup_qssi.bp" dest="hardware/qcom-caf/sm8550/Android.bp" />
+    <linkfile src="os_pickup.mk" dest="hardware/qcom-caf/sm8550/Android.mk" />
+    <linkfile src="os_pickup_audio-ar.mk" dest="hardware/qcom-caf/sm8650/audio/Android.mk" />
+    <linkfile src="os_pickup_qssi.bp" dest="hardware/qcom-caf/sm8650/Android.bp" />
+    <linkfile src="os_pickup.mk" dest="hardware/qcom-caf/sm8650/Android.mk" />
+  </project>
+
+  <remove-project path="hardware/qcom-caf/sm8650/audio/agm" />
+  <project path="hardware/qcom-caf/sm8650/audio/agm" name="vendor_qcom_opensource_agm" groups="qcom,lanai-audio" revision="lineage-22.2-caf-sm8650" remote="Soverzion-Peridot" />
+
+  <remove-project path="hardware/qcom-caf/sm8650/audio/pal" />
+  <project path="hardware/qcom-caf/sm8650/audio/pal" name="vendor_qcom_opensource_arpal-lx" groups="qcom,lanai-audio" revision="lineage-22.2-caf-sm8650" remote="Soverzion-Peridot" />
+
+  <remove-project path="hardware/qcom-caf/sm8650/audio/primary-hal" />
+  <project path="hardware/qcom-caf/sm8650/audio/primary-hal" name="hardware_qcom_audio-ar" groups="qcom,lanai-audio" revision="lineage-22.2-caf-sm8650" remote="Soverzion-Peridot" />
+
+  <remove-project path="hardware/qcom-caf/sm8650/display" />
+  <project path="hardware/qcom-caf/sm8650/display" name="hardware_qcom_display" groups="qcom" revision="lineage-22.2-caf-sm8650" remote="Soverzion-Peridot" />
+
+  <remove-project path="device/qcom/sepolicy_vndr/sm8650" />
+  <project path="device/qcom/sepolicy_vndr/sm8650" name="device_qcom_sepolicy_vndr" groups="qcom,lanai-vendor" revision="vic-sm8650" remote="Soverzion-Peridot" />
+
 </manifest>
